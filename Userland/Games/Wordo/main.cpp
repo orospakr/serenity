@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2020, Andrew Clunis <andrew@orospakr.ca>
- * Copyright (c) 2021, the SerenityOS developers.
+ * Copyright (c) 2022, Andrew Clunis <andrew@orospakr.ca>
+ * Copyright (c) 2022, the SerenityOS developers.
  *
  * SPDX-License-Identifier: BSD-2-Clause
  */
@@ -11,7 +11,9 @@
 #include <LibCore/System.h>
 #include <LibGUI/Icon.h>
 #include <LibGUI/BoxLayout.h>
+#include <LibGUI/Statusbar.h>
 #include <LibGUI/Window.h>
+#include <Games/Wordo/WordoGML.h>
 #include <stdio.h>
 
 ErrorOr<int> serenity_main(Main::Arguments arguments) {
@@ -25,7 +27,14 @@ ErrorOr<int> serenity_main(Main::Arguments arguments) {
 
     window->set_icon(app_icon.bitmap_for_size(16));
     // window->resize(300, 300);
+
+    auto widget = TRY(window->try_set_main_widget<GUI::Widget>());
+    widget->load_from_gml(wordo_gml);
+
+
     window->show();
+
+
 
     // auto main_widget = TRY(window->try_set_main_widget<GUI::Widget>());
     // (void)TRY(main_widget->try_set_layout<GUI::VerticalBoxLayout>());

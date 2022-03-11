@@ -1,11 +1,16 @@
 serenity_component(
     Wordo
+    DESCRIPTION "5-letter word guessing game"
     RECOMMENDED
     TARGETS Wordo
 )
 
+compile_gml(Wordo.gml WordoGML.h wordo_gml)
+
 set(SOURCES
     main.cpp
+    LetterView.cpp
+    WordoGML.h
 )
 
 serenity_app(Wordo ICON app-wordo)
