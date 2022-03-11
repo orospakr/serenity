@@ -9,27 +9,27 @@
 
         }
 
-        @Wordo::LetterView {
+        @Wordo::TileView {
             name: "test0"
             letter: "W"
         }
 
-        @Wordo::LetterView {
+        @Wordo::TileView {
             name: "test1"
             letter: "O"
         }
 
-        @Wordo::LetterView {
+        @Wordo::TileView {
             name: "test2"
             letter: "R"
         }
 
-        @Wordo::LetterView {
+        @Wordo::TileView {
             name: "test3"
             letter: "D"
         }
 
-        @Wordo::LetterView {
+        @Wordo::TileView {
             name: "test4"
             letter: "O"
         }

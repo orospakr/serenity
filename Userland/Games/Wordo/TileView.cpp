@@ -5,29 +5,29 @@
 * SPDX-License-Identifier: BSD-2-Clause
 */
 
-#include "LetterView.h"
+#include "TileView.h"
 #include <LibGUI/Painter.h>
 
 
-REGISTER_WIDGET(Wordo, LetterView);
+REGISTER_WIDGET(Wordo, TileView);
 
 namespace Wordo {
 
-LetterView::LetterView()
+TileView::TileView()
 {
-    dbgln("LetterView() in Wordo!");
+    dbgln("TileView() in Wordo!");
     REGISTER_STRING_PROPERTY("letter", letter, set_letter);
     this->set_fixed_size(25, 25);
 }
 
-void LetterView::set_letter(String letter)
+void TileView::set_letter(String letter)
 {
-    dbgln("LetterView got letter {}", letter);
+    dbgln("TileView got letter {}", letter);
     this->m_letter = letter;
     // TODO: invalidate?
 }
 
-void LetterView::paint_event(GUI::PaintEvent& event)
+void TileView::paint_event(GUI::PaintEvent& event)
 {
     Frame::paint_event(event);
     GUI::Painter painter(*this);

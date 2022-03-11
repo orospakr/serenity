@@ -9,7 +9,7 @@ compile_gml(Wordo.gml WordoGML.h wordo_gml)
 
 set(SOURCES
     main.cpp
-    LetterView.cpp
+        TileView.cpp
     WordoGML.h
 )
 

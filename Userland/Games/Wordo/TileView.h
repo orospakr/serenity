@@ -11,15 +11,15 @@
 
 
 namespace Wordo {
-class LetterView final : public GUI::Frame {
-    C_OBJECT(LetterView)
+class TileView final : public GUI::Frame {
+    C_OBJECT(TileView)
 public:
-    virtual ~LetterView() override = default;
+    virtual ~TileView() override = default;
 
     String letter() const { return m_letter; }
     void set_letter(String letter);
 private:
-    LetterView();
+    TileView();
 
 protected:
     void paint_event(GUI::PaintEvent& event) override;
