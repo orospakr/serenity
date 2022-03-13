@@ -12,13 +12,29 @@
 
 
 namespace Wordo {
+
+
+
 class TileView final : public GUI::Frame {
     C_OBJECT(TileView)
 public:
+    enum class TileState {
+        Unrevealed,
+
+        Input,
+
+        MatchedLetter,
+
+        Revealed
+    };
+
     virtual ~TileView() override = default;
 
     String letter() const { return m_letter; }
     void set_letter(String letter);
+
+    TileState state() const { return m_state; }
+    void set_state(TileState state);
 private:
     TileView();
 
@@ -27,6 +43,9 @@ protected:
 
 private:
     String m_letter;
+    TileState m_state;
     RefPtr<Gfx::Font> tileFont;
+
+
 };
 }
