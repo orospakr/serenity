@@ -8,6 +8,7 @@
 #pragma once
 
 #include <LibGUI/Frame.h>
+#include <LibGfx/Font.h>
 
 
 namespace Wordo {
@@ -26,5 +27,6 @@ protected:
 
 private:
     String m_letter;
+    RefPtr<Gfx::Font> tileFont;
 };
 }
