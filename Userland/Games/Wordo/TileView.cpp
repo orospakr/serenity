@@ -34,12 +34,14 @@ void TileView::set_letter(String letter)
 {
     dbgln("TileView got letter {}", letter);
     this->m_letter = letter;
-    // TODO: invalidate?
+    // TODO: what is correct way to invalidate/redraw?
+    this->repaint();
 }
 
 void TileView::set_state(TileState state) {
     this->m_state = state;
-    // TODO: invalidate?
+    // TODO: what is correct way to invalidate/redraw?
+    this->repaint();
 }
 
 void TileView::paint_event(GUI::PaintEvent& event)
