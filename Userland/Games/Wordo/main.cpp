@@ -14,6 +14,7 @@
 #include <LibGUI/Statusbar.h>
 #include <LibGUI/Window.h>
 #include <Games/Wordo/WordoGML.h>
+#include <Games/Wordo/GameView.h>
 #include <stdio.h>
 
 ErrorOr<int> serenity_main(Main::Arguments arguments) {
@@ -26,19 +27,13 @@ ErrorOr<int> serenity_main(Main::Arguments arguments) {
     window->set_title("Wordo");   
 
     window->set_icon(app_icon.bitmap_for_size(16));
-    // window->resize(300, 300);
 
     auto widget = TRY(window->try_set_main_widget<GUI::Widget>());
     widget->load_from_gml(wordo_gml);
 
+    auto& game = *widget->find_descendant_of_type_named<Wordo::GameView>("game");
+    window->set_focused_widget(&game);
 
     window->show();
-
-
-
-    // auto main_widget = TRY(window->try_set_main_widget<GUI::Widget>());
-    // (void)TRY(main_widget->try_set_layout<GUI::VerticalBoxLayout>());
-    // main_widget->set_fill_with_background_color(true);
-
     return app->exec();
 }

@@ -9,7 +9,8 @@ compile_gml(Wordo.gml WordoGML.h wordo_gml)
 
 set(SOURCES
     main.cpp
-        TileView.cpp
+    TileView.cpp
+    GameView.cpp
     WordoGML.h
 )
 

@@ -13,8 +13,6 @@
 
 namespace Wordo {
 
-
-
 class TileView final : public GUI::Frame {
     C_OBJECT(TileView)
 public:

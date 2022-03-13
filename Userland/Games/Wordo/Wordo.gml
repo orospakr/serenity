@@ -4,6 +4,10 @@
 
     }
 
+    @Wordo::GameView {
+        name: "game"
+    }
+
     @GUI::Widget {
         layout: @GUI::HorizontalBoxLayout {
 
@@ -36,7 +40,7 @@
         @Wordo::TileView {
             name: "test4"
             letter: "O"
-            state: "MatchedLetter"
+            state: "Unrevealed"
         }
     }
 

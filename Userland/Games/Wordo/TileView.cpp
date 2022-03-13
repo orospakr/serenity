@@ -42,7 +42,6 @@ void TileView::set_state(TileState state) {
     // TODO: invalidate?
 }
 
-
 void TileView::paint_event(GUI::PaintEvent& event)
 {
     Frame::paint_event(event);
