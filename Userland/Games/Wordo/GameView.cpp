@@ -8,6 +8,7 @@
 #include "GameView.h"
 #include "TileView.h"
 #include <LibGUI/BoxLayout.h>
+#include <locale>
 
 REGISTER_WIDGET(Wordo, GameView)
 
@@ -35,9 +36,7 @@ namespace Wordo {
     void GameView::keyup_event(GUI::KeyEvent& event)
     {
         Widget::keyup_event(event);
-        auto key_code = event.key();
-        const auto *character = key_code_to_string(key_code);
-        dbgln("GameView: key pressed: {}", character);
+        const auto key_code = event.key();
 
         if (event.key() == KeyCode::Key_Backspace) {
             auto previous_index = max(0, m_tile_index - 1);
@@ -46,10 +45,16 @@ namespace Wordo {
             return;
         }
 
-        VERIFY(m_tile_index < word_length);
-        m_game_board[m_try_number][m_tile_index]->set_letter(character);
-        if(m_tile_index < word_length - 1) {
-            m_tile_index++;
+        const auto *keycode_str = key_code_to_string(key_code);
+
+        if (strlen(keycode_str) == 1 && (isalpha(keycode_str[0]))) {
+            VERIFY(m_tile_index <= word_length);
+            if(m_tile_index < word_length) {
+                m_game_board[m_try_number][m_tile_index]->set_letter(keycode_str);
+                m_tile_index++;
+            }
         }
+
+
     }
 }
